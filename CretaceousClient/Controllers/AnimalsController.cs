@@ -18,27 +18,37 @@ namespace CretaceousClient.Controllers
       return View(allAnimals);
     }
 
-    public static Animal GetDetails(int id)
+    [HttpPost]
+    public IActionResult Index(Animal animal)
     {
-      var apiCallTask = ApiHelper.Get(id);
-      var result = apiCallTask.Result;
-
-      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      Animal animal = JsonConvert.DeserializeObject<Animal>(jsonResponse.ToString());
-
-      return animal;
+      Animal.Post(animal);
+      return RedirectToAction("Index");
     }
 
-    public static void Post(Animal animal)
+    public IActionResult Details(int id)
     {
-      string jsonAnimal = JsonConvert.SerializeObject(animal);
-      var apiCallTask = ApiHelper.Post(jsonAnimal);
+      var animal = Animal.GetDetails(id);
+      return View(animal);
     }
 
-    public static void Put(Animal animal)
+    public IActionResult Edit(int id)
     {
-      string jsonAnimal = JsonConvert.SerializeObject(animal);
-      var apiCallTask = ApiHelper.Put(animal.AnimalId, jsonAnimal);
+      var animal = Animal.GetDetails(id);
+      return View(animal);
+    }
+
+    [HttpPost]
+    public IActionResult Details(int id, Animal animal)
+    {
+      animal.AnimalId = id;
+      Animal.Put(animal);
+      return RedirectToAction("Details", id);
+    }
+
+    public IActionResult Delete(int id)
+    {
+      Animal.Delete(id);
+      return RedirectToAction("Index");
     }
   }
 }

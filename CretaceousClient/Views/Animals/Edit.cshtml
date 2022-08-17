@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Info:</h1>
+<form action="/Animals/Details/@(Model.AnimalId)" method="post">
+  <label for="name">Animal's Name</label>
+  <input id="name" name="name" type="text" value="@(Model.Name)">
+  <label for="species">Animal's Species</label>
+  <input id="species" name="species" type="text" value="@(Model.Species)">
+  <label for="age">Animal's Age</label>
+  <input id="age" name="age" type="number" value="@(Model.Age)">
+  <label for="gender">Animal's Gender</label>
+  <input id="gender" name="gender" type="text" value="@(Model.Gender)">
+  <button type="submit">Go!</button>
+</form>
+
+<a href="/Animals/Details/@(Model.AnimalId)"><p>Return to Details</p></a>

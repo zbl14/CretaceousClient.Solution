@@ -2,6 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
+<h1>New Animal:</h1>
+
+<form action="/animals" method="post">
+  <label for="name">Animal's Name</label>
+  <input id="name" name="name" type="text">
+  <label for="species">Animal's Species</label>
+  <input id="species" name="species" type="text">
+  <label for="age">Animal's Age</label>
+  <input id="age" name="age" type="number">
+  <label for="gender">Animal's Gender</label>
+  <input id="gender" name="gender" type="text">
+  <button type="submit">Go!</button>
+</form>
+
 <h1>All Animals:</h1>
 
 <ol>
