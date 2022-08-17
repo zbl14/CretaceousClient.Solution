@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>All Animals:</h1>
+
+<ol>
+@foreach (Animal animal in Model)
+{
+    <ul>
+        <li>ID: @animal.AnimalId</li>
+        <li>Name: @animal.Name</li>
+        <li>Species: @animal.Species</li>
+        <li>Age: @animal.Age</li>
+        <li>Gender: @animal.Gender</li>
+    </ul>
+    <br>
+}
+</ol>
