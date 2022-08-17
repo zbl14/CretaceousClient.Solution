@@ -5,8 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CretaceousClient.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace CretaceousClient.Controllers
 {
